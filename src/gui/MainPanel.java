@@ -265,9 +265,13 @@ public class MainPanel extends JPanel {
 			@Override
 			public void valueChanged(ListSelectionEvent e) {
 				if(!fErrorWords.isSelectionEmpty()) {
-					DefaultListModel<String> listModel = new DefaultListModel<>(); //To be stored into the JList object
-					for(String word : fSuggestionsCon.get(fErrorWords.getSelectedValue())) {
-						listModel.addElement(word);
+					List<String> words = fSuggestionsCon.get(fErrorWords.getSelectedValue());
+					DefaultListModel<String> listModel = new DefaultListModel<>();
+					if(words != null) {
+						 //To be stored into the JList object
+						for(String word : words) {
+							listModel.addElement(word);
+						}
 					}
 					fSuggestWords.setModel(listModel);
 					fReplaceWordButt.setEnabled(false);
