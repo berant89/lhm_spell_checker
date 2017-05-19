@@ -187,7 +187,7 @@ public class MainPanel extends JPanel {
 					int idx = 0;
 					DefaultListModel<String> listModel = new DefaultListModel<>(); //To be stored into the JList object
 					for(String word : words) {
-						if(!fWordDict.contains(word) {
+						if(!fWordDict.contains(word)) {
 							listModel.addElement(word);
 							fWorkers.get(idx++ %fNumWorkers).addSetElement(word);
 						}
